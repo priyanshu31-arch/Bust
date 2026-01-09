@@ -1,13 +1,12 @@
 
-import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import React from 'react';
 
+import BookingConfirmScreen from '../../components/doctor/booking-confirm-screen';
 import DoctorFilterScreen from '../../components/doctor/doctor-filter-screen';
 import DoctorInfoScreen from '../../components/doctor/doctor-info';
 import PaymentScreen from '../../components/doctor/payment-screen';
-import BookingConfirmScreen from '../../components/doctor/booking-confirm-screen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();

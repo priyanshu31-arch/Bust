@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -23,20 +22,28 @@ const DoctorFilterScreen = ({ navigation }: { navigation: NavigationProp }) => {
 
   return (
     <View style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={styles.backButton}>‹</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Doctor</Text>
       </View>
+
+      {/* Search */}
       <View style={styles.searchContainer}>
-        <TextInput style={styles.searchInput} placeholder="Search" />
+        <TextInput style={styles.searchInput} placeholder="Search" placeholderTextColor="#999" />
       </View>
+
+      {/* Banner */}
       <View style={styles.banner}>
         <Text style={styles.bannerText}>Protect Yourself Against Covid-19</Text>
       </View>
+
+      {/* Filter */}
       <View style={styles.filterContainer}>
         <Text style={styles.filterTitle}>Filter</Text>
+
         <ScrollView>
           {filters.map((filter) => (
             <TouchableOpacity
@@ -46,22 +53,28 @@ const DoctorFilterScreen = ({ navigation }: { navigation: NavigationProp }) => {
             >
               <MaterialCommunityIcons
                 name={filter.icon as any}
-                size={24}
-                color={selectedFilter === filter.name ? '#00796b' : 'gray'}
+                size={22}
+                color={selectedFilter === filter.name ? '#E10600' : '#777'}
               />
-              <Text style={{ marginLeft: 16 }}>{filter.name}</Text>
-              <View style={[styles.radioButton, selectedFilter === filter.name && styles.radioButtonSelected]} />
+
+              <Text style={styles.filterText}>{filter.name}</Text>
+
+              <View
+                style={[
+                  styles.radioButton,
+                  selectedFilter === filter.name && styles.radioButtonSelected,
+                ]}
+              />
             </TouchableOpacity>
           ))}
         </ScrollView>
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.clearButton} onPress={() => setSelectedFilter(initialFilter)}>
-            <Text>Clear</Text>
+            <Text style={styles.clearText}>Clear</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.applyButton}
-            onPress={() => navigation.navigate('DoctorInfo')}
-          >
+
+          <TouchableOpacity style={styles.applyButton} onPress={() => navigation.navigate('DoctorInfo')}>
             <Text style={styles.applyButtonText}>Apply</Text>
           </TouchableOpacity>
         </View>
@@ -70,89 +83,133 @@ const DoctorFilterScreen = ({ navigation }: { navigation: NavigationProp }) => {
   );
 };
 
+export default DoctorFilterScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#FFFFFF',
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
+
   backButton: {
-    fontSize: 24,
+    fontSize: 28,
     marginRight: 16,
+    color: '#E10600',
   },
+
   headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#000000',
   },
+
   searchContainer: {
     padding: 16,
   },
+
   searchInput: {
-    backgroundColor: 'white',
-    padding: 12,
-    borderRadius: 8,
+    backgroundColor: '#F3F3F3',
+    padding: 14,
+    borderRadius: 10,
+    color: '#000',
   },
+
   banner: {
-    backgroundColor: '#e0f2f1',
+    backgroundColor: '#111111',
     padding: 16,
     marginHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: 12,
   },
+
   bannerText: {
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
+
   filterContainer: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     marginTop: 16,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     padding: 16,
   },
+
   filterTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
     marginBottom: 16,
+    color: '#000000',
   },
+
   filterOption: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 12,
+    paddingVertical: 14,
+    borderBottomWidth: 1,
+    borderBottomColor: '#EEEEEE',
   },
+
+  filterText: {
+    marginLeft: 16,
+    color: '#000000',
+    fontWeight: '500',
+  },
+
   radioButton: {
     width: 20,
     height: 20,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#00796b',
+    borderColor: '#E10600',
     marginLeft: 'auto',
   },
+
   radioButtonSelected: {
-    backgroundColor: '#00796b',
+    backgroundColor: '#E10600',
   },
+
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 16,
+    marginTop: 20,
   },
+
   clearButton: {
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: '#000000',
+    width: '45%',
+    alignItems: 'center',
   },
+
+  clearText: {
+    color: '#000000',
+    fontWeight: '600',
+  },
+
   applyButton: {
-    backgroundColor: '#00796b',
+    backgroundColor: '#FF0000',
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 10,
+    width: '45%',
+    alignItems: 'center',
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 6,
   },
+
   applyButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
 });
-
-export default DoctorFilterScreen;

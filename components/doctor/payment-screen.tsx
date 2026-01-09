@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -20,13 +19,16 @@ const PaymentScreen = ({ navigation }: { navigation: NavigationProp }) => {
 
   return (
     <View style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={styles.backButton}>‹</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>About Appointment</Text>
       </View>
+
       <Text style={styles.title}>Select Payment Type</Text>
+
       {paymentOptions.map((option) => (
         <TouchableOpacity
           key={option.name}
@@ -36,12 +38,20 @@ const PaymentScreen = ({ navigation }: { navigation: NavigationProp }) => {
           <MaterialCommunityIcons
             name={option.icon as any}
             size={24}
-            color={selectedPayment === option.name ? '#00796b' : 'gray'}
+            color={selectedPayment === option.name ? '#E10600' : '#777'}
           />
-          <Text style={{ marginLeft: 16 }}>{option.name}</Text>
-          <View style={[styles.radioButton, selectedPayment === option.name && styles.radioButtonSelected]} />
+
+          <Text style={styles.optionText}>{option.name}</Text>
+
+          <View
+            style={[
+              styles.radioButton,
+              selectedPayment === option.name && styles.radioButtonSelected,
+            ]}
+          />
         </TouchableOpacity>
       ))}
+
       <TouchableOpacity
         style={styles.payButton}
         onPress={() => navigation.navigate('BookingConfirm')}
@@ -52,62 +62,88 @@ const PaymentScreen = ({ navigation }: { navigation: NavigationProp }) => {
   );
 };
 
+export default PaymentScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#FFFFFF',
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
+
   backButton: {
-    fontSize: 24,
+    fontSize: 28,
     marginRight: 16,
+    color: '#E10600',
   },
+
   headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#000000',
   },
+
   title: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
     margin: 16,
+    color: '#000000',
   },
+
   paymentOption: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     padding: 16,
     marginHorizontal: 16,
-    marginVertical: 4,
-    borderRadius: 8,
+    marginVertical: 6,
+    borderRadius: 14,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
+
+  optionText: {
+    marginLeft: 16,
+    color: '#000000',
+    fontWeight: '500',
+  },
+
   radioButton: {
     width: 20,
     height: 20,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#00796b',
+    borderColor: '#E10600',
     marginLeft: 'auto',
   },
+
   radioButtonSelected: {
-    backgroundColor: '#00796b',
+    backgroundColor: '#E10600',
   },
+
   payButton: {
-    backgroundColor: '#00796b',
-    padding: 16,
+    backgroundColor: '#FF0000',
+    padding: 18,
     margin: 16,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8,
   },
+
   payButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontWeight: '800',
     fontSize: 18,
   },
 });
-
-export default PaymentScreen;

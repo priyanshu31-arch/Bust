@@ -148,126 +148,155 @@ function MenuItem({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingTop: 50,
   },
+
   header: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '800',
     textAlign: 'center',
     marginBottom: 16,
+    color: '#000',
   },
+
   profileCard: {
     alignItems: 'center',
     paddingVertical: 20,
   },
+
   avatarWrapper: {
-    borderWidth: 2,
-    borderColor: '#00A8A8',
+    borderWidth: 3,
+    borderColor: '#FF0000',
     borderRadius: 60,
     padding: 4,
     marginBottom: 10,
   },
+
   avatar: {
     width: 90,
     height: 90,
     borderRadius: 45,
   },
+
   name: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '800',
+    color: '#000',
   },
+
   subText: {
     fontSize: 13,
     color: '#777',
     marginVertical: 4,
   },
+
   editBtn: {
-    marginTop: 10,
-    backgroundColor: '#00A8A8',
-    paddingHorizontal: 22,
-    paddingVertical: 8,
-    borderRadius: 6,
+    marginTop: 12,
+    backgroundColor: '#FF0000',
+    paddingHorizontal: 26,
+    paddingVertical: 10,
+    borderRadius: 12,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.35,
+    shadowRadius: 6,
+    elevation: 5,
   },
+
   editBtnText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
+
   menu: {
     marginTop: 20,
   },
+
   menuItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 14,
+    paddingVertical: 16,
     paddingHorizontal: 20,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#EEE',
+    backgroundColor: '#FFF',
   },
+
   menuText: {
     flex: 1,
     marginLeft: 12,
     fontSize: 15,
-    color: '#333',
+    color: '#000',
+    fontWeight: '600',
   },
 
-  /* Modal styles unchanged */
+  /* Modal */
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   modalCard: {
     width: '85%',
-    backgroundColor: '#fff',
-    borderRadius: 14,
-    padding: 20,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 20,
+    padding: 24,
     alignItems: 'center',
   },
+
   logoutIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: '#E6F6F7',
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: '#FFEEEE',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 12,
   },
+
   modalTitle: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 18,
+    fontWeight: '800',
     marginBottom: 6,
+    color: '#000',
   },
+
   modalSub: {
     fontSize: 13,
     color: '#777',
     textAlign: 'center',
     marginBottom: 20,
   },
+
   modalActions: {
     width: '100%',
   },
+
   logoutBtn: {
-    borderWidth: 1,
-    borderColor: '#00A8A8',
-    borderRadius: 8,
-    paddingVertical: 10,
+    borderWidth: 2,
+    borderColor: '#FF0000',
+    borderRadius: 14,
+    paddingVertical: 12,
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 12,
   },
+
   logoutText: {
-    color: '#00A8A8',
-    fontWeight: '500',
+    color: '#FF0000',
+    fontWeight: '700',
   },
+
   cancelBtn: {
-    backgroundColor: '#00A8A8',
-    borderRadius: 8,
-    paddingVertical: 10,
+    backgroundColor: '#FF0000',
+    borderRadius: 14,
+    paddingVertical: 12,
     alignItems: 'center',
   },
+
   cancelText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
 });

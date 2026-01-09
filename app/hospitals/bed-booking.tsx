@@ -190,7 +190,7 @@ export default function BedBooking() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingTop: 50,
     paddingHorizontal: 16,
   },
@@ -203,16 +203,20 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
 
   card: {
     flexDirection: 'row',
-    backgroundColor: '#fff',
-    borderRadius: 14,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
     padding: 12,
     marginBottom: 20,
-    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
   cardImage: {
     width: 72,
@@ -225,7 +229,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
   cardSub: {
     fontSize: 12,
@@ -239,13 +244,15 @@ const styles = StyleSheet.create({
   ratingText: {
     fontSize: 12,
     marginLeft: 4,
+    color: '#000',
   },
 
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 8,
     marginTop: 16,
+    color: '#000',
   },
 
   desc: {
@@ -260,24 +267,26 @@ const styles = StyleSheet.create({
   dateBox: {
     width: 42,
     height: 42,
-    borderRadius: 8,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: '#DDD',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 10,
+    backgroundColor: '#FFF',
   },
   dateActive: {
-    backgroundColor: '#00A8A8',
-    borderColor: '#00A8A8',
+    backgroundColor: '#FF0000',
+    borderColor: '#FF0000',
   },
   dateText: {
     fontSize: 12,
-    color: '#333',
+    color: '#000',
+    fontWeight: '600',
   },
   dateTextActive: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFF',
+    fontWeight: '700',
   },
 
   timeGrid: {
@@ -288,46 +297,50 @@ const styles = StyleSheet.create({
   timeBox: {
     width: '30%',
     paddingVertical: 10,
-    borderRadius: 8,
+    borderRadius: 10,
     borderWidth: 1,
     borderColor: '#DDD',
     alignItems: 'center',
     marginBottom: 10,
+    backgroundColor: '#FFF',
   },
   timeActive: {
-    backgroundColor: '#E6F6F7',
-    borderColor: '#00A8A8',
+    backgroundColor: '#FFEEEE',
+    borderColor: '#FF0000',
   },
   timeText: {
     fontSize: 12,
-    color: '#333',
+    color: '#000',
+    fontWeight: '600',
   },
   timeTextActive: {
-    color: '#00A8A8',
-    fontWeight: '500',
+    color: '#FF0000',
+    fontWeight: '700',
   },
 
   bedRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 12,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 14,
     padding: 12,
     borderWidth: 1,
     borderColor: '#EEE',
     marginBottom: 10,
   },
   bedSelected: {
-    backgroundColor: '#E6F6F7',
-    borderColor: '#00A8A8',
+    backgroundColor: '#FFEEEE',
+    borderColor: '#FF0000',
   },
   bedDisabled: {
-    opacity: 0.6,
+    opacity: 0.5,
   },
   bedName: {
     flex: 1,
     marginLeft: 10,
     fontSize: 14,
+    color: '#000',
+    fontWeight: '600',
   },
 
   badge: {
@@ -336,31 +349,35 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   avlBadge: {
-    backgroundColor: '#E6F6F7',
+    backgroundColor: '#FFEEEE',
   },
   fullBadge: {
     backgroundColor: '#FDECEA',
   },
   badgeText: {
     fontSize: 12,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   avlText: {
-    color: '#00A8A8',
+    color: '#FF0000',
   },
   fullText: {
     color: '#E53935',
   },
 
   bookBtn: {
-    backgroundColor: '#00A8A8',
-    paddingVertical: 14,
-    borderRadius: 10,
+    backgroundColor: '#FF0000',
+    paddingVertical: 16,
+    borderRadius: 14,
     alignItems: 'center',
     marginTop: 20,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 6,
   },
   bookText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
 });

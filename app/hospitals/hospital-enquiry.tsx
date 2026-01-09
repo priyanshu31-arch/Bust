@@ -102,7 +102,7 @@ export default function HospitalEnquiry() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingTop: 50,
     paddingHorizontal: 16,
   },
@@ -115,17 +115,21 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
 
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 14,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
     padding: 12,
     marginBottom: 24,
-    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
   cardImage: {
     width: 72,
@@ -138,7 +142,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
   cardSub: {
     fontSize: 12,
@@ -152,13 +157,15 @@ const styles = StyleSheet.create({
   ratingText: {
     fontSize: 12,
     marginLeft: 4,
+    color: '#000',
   },
 
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 8,
     marginTop: 20,
+    color: '#000',
   },
 
   desc: {
@@ -169,9 +176,10 @@ const styles = StyleSheet.create({
 
   bullet: {
     fontSize: 13,
-    color: '#444',
+    color: '#000',
     marginLeft: 8,
-    marginBottom: 4,
+    marginBottom: 6,
+    fontWeight: '500',
   },
 
   beds: {
@@ -184,28 +192,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginTop: 28,
   },
+
   primary: {
     flex: 1,
-    backgroundColor: '#00A8A8',
-    paddingVertical: 14,
-    borderRadius: 10,
+    backgroundColor: '#FF0000',
+    paddingVertical: 16,
+    borderRadius: 14,
     alignItems: 'center',
     marginRight: 8,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 6,
   },
   primaryText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
+
   outline: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: '#00A8A8',
-    paddingVertical: 14,
-    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: '#FF0000',
+    paddingVertical: 16,
+    borderRadius: 14,
     alignItems: 'center',
   },
   outlineText: {
-    color: '#00A8A8',
-    fontWeight: '500',
+    color: '#FF0000',
+    fontWeight: '700',
   },
 });

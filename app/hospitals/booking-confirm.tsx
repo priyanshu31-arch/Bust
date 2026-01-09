@@ -69,57 +69,73 @@ function Row({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
     paddingTop: 100,
     paddingHorizontal: 16,
   },
+
   circle: {
     width: 90,
     height: 90,
     borderRadius: 45,
-    backgroundColor: '#00A8A8',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 20,
   },
+
   title: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '800',
+    color: '#000000',
   },
+
   sub: {
     fontSize: 13,
-    color: '#777',
+    color: '#777777',
     textAlign: 'center',
     marginVertical: 12,
   },
+
   summary: {
     width: '100%',
     marginTop: 20,
   },
+
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 8,
+    paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#EEE',
+    borderBottomColor: '#EEEEEE',
   },
+
   rowLabel: {
-    color: '#555',
+    color: '#000000',
+    fontWeight: '500',
   },
+
   rowValue: {
-    color: '#000',
+    color: '#000000',
+    fontWeight: '600',
   },
+
   homeBtn: {
-    backgroundColor: '#00A8A8',
-    paddingVertical: 14,
-    borderRadius: 10,
+    backgroundColor: '#FF0000',
+    paddingVertical: 16,
+    borderRadius: 14,
     alignItems: 'center',
     width: '100%',
     marginTop: 30,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 6,
   },
+
   homeText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
 });

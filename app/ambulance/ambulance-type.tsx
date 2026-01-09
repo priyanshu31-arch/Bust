@@ -15,9 +15,10 @@ const AmbulanceTypeScreen = () => {
 
   return (
     <View style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={24} color="black" />
+          <Ionicons name="arrow-back" size={26} color="#E10600" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Ambulance Type</Text>
       </View>
@@ -33,54 +34,79 @@ const AmbulanceTypeScreen = () => {
         )}
       />
 
-      <TouchableOpacity style={styles.confirmButton} onPress={() => router.push('/ambulance/payment')}>
+      <TouchableOpacity
+        style={styles.confirmButton}
+        onPress={() => router.push('/ambulance/payment')}
+      >
         <Text style={styles.confirmButtonText}>Confirm Ambulance</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
+export default AmbulanceTypeScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
+    backgroundColor: '#FFFFFF',
   },
+
   headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '800',
     marginLeft: 16,
+    color: '#000000',
   },
+
   typeItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
+    marginHorizontal: 16,
+    marginVertical: 6,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 14,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
+
   typeName: {
     fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
   },
+
   typePrice: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: '800',
+    color: '#E10600',
   },
+
   confirmButton: {
     margin: 16,
-    padding: 16,
-    backgroundColor: '#007E8B',
-    borderRadius: 8,
+    padding: 18,
+    backgroundColor: '#FF0000',
+    borderRadius: 16,
     alignItems: 'center',
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8,
   },
+
   confirmButtonText: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
+    fontWeight: '800',
+    color: '#FFFFFF',
   },
 });
-
-export default AmbulanceTypeScreen;

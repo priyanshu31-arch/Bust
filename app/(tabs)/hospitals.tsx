@@ -1,16 +1,16 @@
+import { Ionicons } from '@expo/vector-icons';
+import { Image } from 'expo-image';
+import { router } from 'expo-router';
+import { useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
+  Modal,
   ScrollView,
+  StyleSheet,
+  Text,
   TextInput,
   TouchableOpacity,
-  Modal,
+  View,
 } from 'react-native';
-import { Image } from 'expo-image';
-import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
-import { router } from 'expo-router';
 
 export default function HospitalScreen() {
   const [filterVisible, setFilterVisible] = useState(false);
@@ -56,7 +56,7 @@ export default function HospitalScreen() {
           {['Neurologist', 'Cardiologist', 'Pulmonologist', 'Dentist'].map(
             (item) => (
               <View key={item} style={styles.categoryItem}>
-                <Ionicons name="medkit-outline" size={22} color="#00A8A8" />
+                <Ionicons name="medkit-outline" size={22} color="#FF0000" />
                 <Text style={styles.categoryText}>{item}</Text>
               </View>
             )
@@ -188,7 +188,7 @@ function HospitalCard({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingTop: 50,
     paddingHorizontal: 16,
   },
@@ -201,35 +201,38 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
 
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#F2F2F2',
-    borderRadius: 12,
+    borderRadius: 14,
     paddingHorizontal: 12,
-    height: 44,
+    height: 46,
     marginBottom: 20,
   },
   searchInput: {
     flex: 1,
     marginHorizontal: 8,
     fontSize: 14,
+    color: '#000',
   },
 
   banner: {
     width: '100%',
     height: 170,
-    borderRadius: 14,
+    borderRadius: 16,
     marginBottom: 24,
   },
 
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 12,
+    color: '#000',
   },
 
   categories: {
@@ -249,6 +252,8 @@ const styles = StyleSheet.create({
     fontSize: 11,
     marginTop: 6,
     textAlign: 'center',
+    color: '#000000',
+    fontWeight: '600',
   },
 
   toggle: {
@@ -258,29 +263,31 @@ const styles = StyleSheet.create({
   toggleInactive: {
     flex: 1,
     height: 44,
-    borderRadius: 10,
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: '#DDD',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 8,
+    backgroundColor: '#FFF',
   },
   toggleActive: {
     flex: 1,
     height: 44,
-    borderRadius: 10,
-    backgroundColor: '#00A8A8',
+    borderRadius: 12,
+    backgroundColor: '#FF0000',
     alignItems: 'center',
     justifyContent: 'center',
   },
   toggleText: {
     fontSize: 14,
-    color: '#333',
+    color: '#000',
+    fontWeight: '600',
   },
   toggleTextActive: {
     fontSize: 14,
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFF',
+    fontWeight: '700',
   },
 
   sectionHeader: {
@@ -291,17 +298,21 @@ const styles = StyleSheet.create({
   },
   filter: {
     fontSize: 13,
-    color: '#00A8A8',
+    color: '#FF0000',
+    fontWeight: '600',
   },
 
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 14,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
     padding: 12,
     marginBottom: 12,
-    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
   cardImage: {
     width: 72,
@@ -314,7 +325,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
   cardSub: {
     fontSize: 12,
@@ -328,32 +340,36 @@ const styles = StyleSheet.create({
   ratingText: {
     fontSize: 12,
     marginLeft: 4,
+    color: '#000',
   },
 
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: 'rgba(0,0,0,0.45)',
     justifyContent: 'flex-end',
   },
   filterModal: {
-    backgroundColor: '#fff',
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
     padding: 16,
   },
   filterTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 12,
+    color: '#000',
   },
   filterItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 12,
   },
   filterText: {
     marginLeft: 10,
     fontSize: 14,
+    color: '#000',
+    fontWeight: '500',
   },
   filterActions: {
     flexDirection: 'row',
@@ -362,17 +378,17 @@ const styles = StyleSheet.create({
   clearBtn: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#00A8A8',
-    padding: 12,
-    borderRadius: 8,
+    borderColor: '#FF0000',
+    padding: 14,
+    borderRadius: 12,
     alignItems: 'center',
     marginRight: 8,
   },
   applyBtn: {
     flex: 1,
-    backgroundColor: '#00A8A8',
-    padding: 12,
-    borderRadius: 8,
+    backgroundColor: '#FF0000',
+    padding: 14,
+    borderRadius: 12,
     alignItems: 'center',
   },
 });

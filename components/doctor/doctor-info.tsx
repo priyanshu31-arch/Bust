@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
 
@@ -20,15 +19,18 @@ const DoctorInfoScreen = ({ navigation }: { navigation: NavigationProp }) => {
 
   return (
     <ScrollView style={styles.container}>
+      {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text style={styles.backButton}>‹</Text>
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Appointment</Text>
       </View>
+
+      {/* Doctor Card */}
       <View style={styles.doctorCard}>
         <Image
-          source={{ uri: 'https://www.woodlandshospital.in/images/doctor-img/Sushovan-Chowdhury.jpg' }} // Replace with actual image
+          source={{ uri: 'https://www.woodlandshospital.in/images/doctor-img/Sushovan-Chowdhury.jpg' }}
           style={styles.doctorImage}
         />
         <View>
@@ -37,13 +39,17 @@ const DoctorInfoScreen = ({ navigation }: { navigation: NavigationProp }) => {
           <Text style={styles.doctorRating}>★★★★☆ (4.6)</Text>
         </View>
       </View>
+
+      {/* About */}
       <View style={styles.aboutSection}>
         <Text style={styles.sectionTitle}>About</Text>
-        <Text>
+        <Text style={styles.aboutText}>
           Dr. Neha Viswanathan is a highly skilled cardiovascular technologist...
-          <Text style={styles.readMore}>Read more</Text>
+          <Text style={styles.readMore}> Read more</Text>
         </Text>
       </View>
+
+      {/* Date */}
       <View style={styles.dateSection}>
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Select date</Text>
@@ -51,6 +57,7 @@ const DoctorInfoScreen = ({ navigation }: { navigation: NavigationProp }) => {
             <Text style={styles.changeButton}>Change</Text>
           </TouchableOpacity>
         </View>
+
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {dates.map((date) => (
             <TouchableOpacity
@@ -58,11 +65,15 @@ const DoctorInfoScreen = ({ navigation }: { navigation: NavigationProp }) => {
               style={[styles.date, selectedDate === date && styles.selectedDate]}
               onPress={() => setSelectedDate(date)}
             >
-              <Text style={[styles.dateText, selectedDate === date && styles.selectedDateText]}>{date}</Text>
+              <Text style={[styles.dateText, selectedDate === date && styles.selectedDateText]}>
+                {date}
+              </Text>
             </TouchableOpacity>
           ))}
         </ScrollView>
       </View>
+
+      {/* Time */}
       <View style={styles.timeSection}>
         <Text style={styles.sectionTitle}>Select Time</Text>
         <View style={styles.timeContainer}>
@@ -72,140 +83,189 @@ const DoctorInfoScreen = ({ navigation }: { navigation: NavigationProp }) => {
               style={[styles.time, selectedTime === time && styles.selectedTime]}
               onPress={() => setSelectedTime(time)}
             >
-              <Text style={[styles.timeText, selectedTime === time && styles.selectedTimeText]}>{time}</Text>
+              <Text style={[styles.timeText, selectedTime === time && styles.selectedTimeText]}>
+                {time}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
       </View>
-      <TouchableOpacity
-        style={styles.bookButton}
-        onPress={() => navigation.navigate('Payment')}
-      >
+
+      {/* Book */}
+      <TouchableOpacity style={styles.bookButton} onPress={() => navigation.navigate('Payment')}>
         <Text style={styles.bookButtonText}>Book Appointment</Text>
       </TouchableOpacity>
     </ScrollView>
   );
 };
 
+export default DoctorInfoScreen;
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#FFFFFF',
   },
+
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
   },
+
   backButton: {
-    fontSize: 24,
+    fontSize: 28,
     marginRight: 16,
+    color: '#E10600',
   },
+
   headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 22,
+    fontWeight: '800',
+    color: '#000000',
   },
+
   doctorCard: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     padding: 16,
     margin: 16,
-    borderRadius: 8,
+    borderRadius: 14,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 4,
   },
+
   doctorImage: {
     width: 80,
     height: 80,
     borderRadius: 40,
     marginRight: 16,
   },
+
   doctorName: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
+    color: '#000000',
   },
+
   doctorSpecialty: {
-    color: 'gray',
+    color: '#777777',
   },
+
   doctorRating: {
-    color: '#f8b400',
+    color: '#E10600',
+    marginTop: 4,
   },
+
   aboutSection: {
     padding: 16,
   },
+
+  aboutText: {
+    color: '#444444',
+  },
+
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '800',
     marginBottom: 8,
+    color: '#000000',
   },
+
   readMore: {
-    color: '#00796b',
+    color: '#E10600',
+    fontWeight: '600',
   },
+
   dateSection: {
     padding: 16,
   },
+
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 8,
   },
+
   changeButton: {
-    color: '#00796b',
+    color: '#E10600',
+    fontWeight: '600',
   },
+
   date: {
-    backgroundColor: 'white',
+    backgroundColor: '#F2F2F2',
     padding: 16,
-    borderRadius: 8,
+    borderRadius: 12,
     marginRight: 8,
     alignItems: 'center',
+    minWidth: 60,
   },
+
   selectedDate: {
-    backgroundColor: '#00796b',
+    backgroundColor: '#FF0000',
   },
+
   dateText: {
-    color: 'black',
+    color: '#000000',
+    fontWeight: '600',
   },
+
   selectedDateText: {
-    color: 'white',
+    color: '#FFFFFF',
   },
+
   timeSection: {
     padding: 16,
   },
+
   timeContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
+
   time: {
-    backgroundColor: 'white',
+    backgroundColor: '#F2F2F2',
     padding: 12,
-    borderRadius: 8,
+    borderRadius: 12,
     width: '32%',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 10,
   },
+
   selectedTime: {
-    backgroundColor: '#00796b',
+    backgroundColor: '#FF0000',
   },
+
   timeText: {
-    color: 'black',
+    color: '#000000',
+    fontWeight: '600',
   },
+
   selectedTimeText: {
-    color: 'white',
+    color: '#FFFFFF',
   },
+
   bookButton: {
-    backgroundColor: '#00796b',
-    padding: 16,
+    backgroundColor: '#FF0000',
+    padding: 18,
     margin: 16,
-    borderRadius: 8,
+    borderRadius: 16,
     alignItems: 'center',
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8,
   },
+
   bookButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontWeight: '800',
     fontSize: 18,
   },
 });
-
-export default DoctorInfoScreen;

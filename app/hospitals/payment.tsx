@@ -65,24 +65,30 @@ export default function Payment() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingTop: 50,
     paddingHorizontal: 16,
   },
+
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 24,
   },
+
   headerTitle: {
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: '700',
+    color: '#000',
   },
+
   sectionTitle: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 16,
+    color: '#000',
   },
+
   paymentRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -90,31 +96,43 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#EEE',
   },
+
   paymentText: {
     flex: 1,
     marginLeft: 12,
     fontSize: 14,
+    color: '#000',
+    fontWeight: '600',
   },
+
   radio: {
     width: 16,
     height: 16,
     borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#999',
+    borderWidth: 2,
+    borderColor: '#FF0000',
   },
+
   radioActive: {
-    backgroundColor: '#00A8A8',
-    borderColor: '#00A8A8',
+    backgroundColor: '#FF0000',
+    borderColor: '#FF0000',
   },
+
   payBtn: {
-    backgroundColor: '#00A8A8',
-    paddingVertical: 14,
-    borderRadius: 10,
+    backgroundColor: '#FF0000',
+    paddingVertical: 16,
+    borderRadius: 14,
     alignItems: 'center',
     marginTop: 30,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 6,
   },
+
   payText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '700',
+    fontSize: 15,
   },
 });

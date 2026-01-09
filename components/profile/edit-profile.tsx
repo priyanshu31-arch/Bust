@@ -64,7 +64,7 @@ export default function EditProfile() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     padding: 16,
   },
 
@@ -74,56 +74,71 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginBottom: 32,
   },
+
   title: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '800',
+    color: '#000',
   },
 
   avatarWrapper: {
     alignItems: 'center',
     marginBottom: 32,
   },
+
   avatarBorder: {
-    borderWidth: 2,
-    borderColor: '#00A8A8',
+    borderWidth: 3,
+    borderColor: '#FF0000',
     borderRadius: 60,
     padding: 4,
   },
+
   avatar: {
     width: 100,
     height: 100,
     borderRadius: 50,
   },
+
   camera: {
     position: 'absolute',
     bottom: 6,
     right: 120 / 2 - 12,
-    backgroundColor: '#00A8A8',
-    borderRadius: 14,
-    padding: 6,
+    backgroundColor: '#FF0000',
+    borderRadius: 16,
+    padding: 8,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.4,
+    shadowRadius: 6,
+    elevation: 6,
   },
 
   input: {
     borderWidth: 1,
-    borderColor: '#E0E0E0',
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 14,
+    borderColor: '#DDD',
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 16,
     fontSize: 14,
     marginBottom: 14,
     color: '#000',
+    backgroundColor: '#F6F6F6',
   },
 
   doneBtn: {
-    backgroundColor: '#00A8A8',
-    paddingVertical: 14,
-    borderRadius: 8,
+    backgroundColor: '#FF0000',
+    paddingVertical: 16,
+    borderRadius: 14,
     alignItems: 'center',
     marginTop: 20,
+    shadowColor: '#FF0000',
+    shadowOpacity: 0.35,
+    shadowRadius: 8,
+    elevation: 6,
   },
+
   doneText: {
-    color: '#fff',
-    fontWeight: '500',
+    color: '#FFFFFF',
+    fontWeight: '800',
     fontSize: 15,
   },
 });

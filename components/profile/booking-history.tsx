@@ -69,7 +69,7 @@ function HistoryCard({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     paddingHorizontal: 16,
     paddingTop: 32,
   },
@@ -79,28 +79,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 24,
   },
+
   title: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontSize: 20,
+    fontWeight: '800',
     marginLeft: 12,
+    color: '#000',
   },
 
   section: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '800',
     marginTop: 24,
     marginBottom: 12,
+    color: '#000',
   },
 
   card: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    borderRadius: 12,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 16,
     padding: 12,
     marginBottom: 12,
-    borderWidth: 1,
-    borderColor: '#EEE',
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
   },
 
   img: {
@@ -116,14 +121,16 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontWeight: '700',
     marginBottom: 4,
+    color: '#000',
   },
 
   ratingRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
+
   ratingText: {
     fontSize: 13,
     color: '#777',
@@ -131,14 +138,15 @@ const styles = StyleSheet.create({
   },
 
   rebookBtn: {
-    backgroundColor: '#E6F6F7',
-    paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 6,
+    backgroundColor: '#FFEEEE',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 10,
   },
+
   rebookText: {
-    color: '#00A8A8',
-    fontWeight: '600',
+    color: '#FF0000',
+    fontWeight: '800',
     fontSize: 14,
   },
 });
