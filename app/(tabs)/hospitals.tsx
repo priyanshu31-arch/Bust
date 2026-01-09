@@ -3,6 +3,7 @@ import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { useState } from 'react';
 import {
+  ImageSourcePropType,
   Modal,
   ScrollView,
   StyleSheet,
@@ -43,9 +44,9 @@ export default function HospitalScreen() {
           <Ionicons name="mic-outline" size={18} color="#888" />
         </View>
 
-        {/* Banner */}
+        {/* Banner - Using local asset */}
         <Image
-          source={{ uri: 'https://via.placeholder.com/400x180' }}
+          source={require('@/assets/images/hospital1.png')}
           style={styles.banner}
           contentFit="cover"
         />
@@ -65,7 +66,7 @@ export default function HospitalScreen() {
 
         {/* Toggle */}
         <View style={styles.toggle}>
-          <TouchableOpacity style={styles.toggleInactive}>
+          <TouchableOpacity style={styles.toggleInactive} onPress={() => router.push('/doctors')}>
             <Text style={styles.toggleText}>Doctor</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.toggleActive}>
@@ -84,21 +85,24 @@ export default function HospitalScreen() {
           </Text>
         </View>
 
-        {/* Cards */}
+        {/* Cards with Images passed as props */}
         <HospitalCard
           name="Sun Shine Hospital"
           location="Hoskote • Bangalore"
           rating="5.0"
+          image={require('@/assets/images/h3.png')}
         />
         <HospitalCard
           name="Jay Deva Hospital"
           location="Banashankari • Bangalore"
           rating="4.8"
+          image={require('@/assets/images/h4.png')}
         />
         <HospitalCard
           name="Life Care Hospital"
           location="Silk Board • Bangalore"
           rating="4.6"
+          image={require('@/assets/images/h5.png')}
         />
       </ScrollView>
 
@@ -148,15 +152,17 @@ export default function HospitalScreen() {
   );
 }
 
-/* Card */
+/* Updated Card to accept Image */
 function HospitalCard({
   name,
   location,
   rating,
+  image, // Added image prop
 }: {
   name: string;
   location: string;
   rating: string;
+  image: ImageSourcePropType; // Added type definition
 }) {
   return (
     <TouchableOpacity
@@ -165,7 +171,7 @@ function HospitalCard({
       onPress={() => router.push('/hospitals/hospital-enquiry')}
     >
       <Image
-        source={{ uri: 'https://via.placeholder.com/300' }}
+        source={image} // Using the prop
         style={styles.cardImage}
         contentFit="cover"
       />
@@ -184,7 +190,6 @@ function HospitalCard({
   );
 }
 
-/* Styles — unchanged */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -192,7 +197,6 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 16,
   },
-
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -204,7 +208,6 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#000',
   },
-
   searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -220,21 +223,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000',
   },
-
   banner: {
     width: '100%',
     height: 170,
     borderRadius: 16,
     marginBottom: 24,
   },
-
   sectionTitle: {
     fontSize: 16,
     fontWeight: '700',
     marginBottom: 12,
     color: '#000',
   },
-
   categories: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -255,7 +255,6 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontWeight: '600',
   },
-
   toggle: {
     flexDirection: 'row',
     marginBottom: 20,
@@ -289,7 +288,6 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontWeight: '700',
   },
-
   sectionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -301,7 +299,6 @@ const styles = StyleSheet.create({
     color: '#FF0000',
     fontWeight: '600',
   },
-
   card: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -342,7 +339,6 @@ const styles = StyleSheet.create({
     marginLeft: 4,
     color: '#000',
   },
-
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.45)',

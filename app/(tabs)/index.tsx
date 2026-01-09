@@ -42,35 +42,36 @@ const hospitals = [
     name: 'Patel Orthopadiec',
     location: 'Seattle, WA',
     rating: 4.6,
-    image: require('@/assets/images/hospital1.png'),
+    image: require('@/assets/images/h3.png'),
   },
   {
     name: 'ARC Max hospital',
     location: 'Springfield, IL',
     rating: 4.9,
-    image: require('@/assets/images/hospital2.png'),
+    image: require('@/assets/images/h4.png'),
   }, 
   {
     name: 'City Care Clinic',
     location: 'Austin, TX',
     rating: 4.5,
-    image: require('@/assets/images/hospital1.png'),
+    image: require('@/assets/images/h5.png'),
   },
   {
     name: 'Grand General',
     location: 'New York, NY',
     rating: 4.8,
-    image: require('@/assets/images/hospital2.png'),
+    image: require('@/assets/images/h5.png'),
   },
 ];
 
 // Define theme colors
 const THEME = {
   background: 'white',
-  cardBackground: '#1C1C1E',
+  cardBackground: '#FFF5F5',
   primary: '#FF0000', // Red
-  textPrimary: '#FFFFFF',
+  textPrimary: '#000000',
   textSecondary: '#AAAAAA',
+  borderColor: '#E5E5E5',
 };
 
 export default function HomeScreen() {
@@ -78,13 +79,12 @@ export default function HomeScreen() {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <ThemedView style={styles.header}>
-        <ThemedText type="title" style={styles.headerText}>Home</ThemedText>
-      </ThemedView>
-      
+<ThemedView style={styles.header}>
+  <ThemedText type="title" style={styles.headerText}>HealthHive</ThemedText>
+</ThemedView>
       <View style={styles.banner}>
         <Image
-          source={require('@/assets/images/hospital1.png')}
+          source={require('@/assets/images/hospital2.png')}
           style={styles.bannerImage}
           contentFit="cover"
         />
@@ -106,7 +106,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
 
           {/* Doctor Icon */}
-          <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/doctors')}>
+          <TouchableOpacity style={styles.gridItem} onPress={() => router.push('/doctor')}>
             <View style={styles.iconContainer}>
                <MaterialCommunityIcons name="doctor" size={32} color={THEME.primary} />
             </View>
@@ -131,50 +131,62 @@ export default function HomeScreen() {
         </View>
       </View>
 
-      {/* Top Doctors Section */}
+     {/* Top Doctors Section */}
       <View style={styles.section}>
-        <View style={styles.sectionHeader}>
-          <ThemedText type="subtitle" style={styles.sectionTitle}>Top Doctors</ThemedText>
-          <TouchableOpacity onPress={() => router.push('/doctors')}>
-            <ThemedText style={styles.seeAllText}>See all</ThemedText>
-          </TouchableOpacity>
-        </View>
-        
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.horizontalScrollContent}
-        >
-          {doctors.map((doctor, index) => (
-            <View key={index} style={styles.cardWrapper}>
-              <DoctorCard doctor={doctor} />
-            </View>
-          ))}
-        </ScrollView>
-      </View>
+        {/* New Wrapper for the Card Effect */}
+        <View style={styles.bigCard}>
+          
+          <View style={styles.sectionHeader}>
+            <ThemedText type="subtitle" style={[styles.sectionTitle, { color: THEME.textPrimary }]}>
+              Top Doctors
+            </ThemedText>
+            <TouchableOpacity onPress={() => router.push('/doctors')}>
+              <ThemedText style={styles.seeAllText}>See all</ThemedText>
+            </TouchableOpacity>
+          </View>
+          
+          <ScrollView 
+            horizontal 
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.horizontalScrollContent}
+          >
+            {doctors.map((doctor, index) => (
+              <View key={index} style={styles.cardWrapper}>
+                <DoctorCard doctor={doctor} />
+              </View>
+            ))}
+          </ScrollView>
 
-      {/* Top Hospitals Section */}
+        </View>
+      </View>
       <View style={styles.section}>
-        <View style={styles.sectionHeader}>
-          <ThemedText type="subtitle" style={styles.sectionTitle}>Top Hospital</ThemedText>
-          <TouchableOpacity onPress={() => router.push('/hospitals')}>
-            <ThemedText style={styles.seeAllText}>See all</ThemedText>
-          </TouchableOpacity>
+        {/* New Wrapper for the Card Effect */}
+        <View style={styles.bigCard}>
+          
+          <View style={styles.sectionHeader}>
+            {/* Kept your black text request */}
+            <ThemedText type="subtitle" style={[styles.sectionTitle, { color: THEME.textPrimary }]}>
+              Top Hospital
+            </ThemedText>
+            <TouchableOpacity onPress={() => router.push('/hospitals')}>
+              <ThemedText style={styles.seeAllText}>See all</ThemedText>
+            </TouchableOpacity>
+          </View>
+
+          <ScrollView 
+            horizontal 
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.horizontalScrollContent}
+          >
+            {hospitals.map((hospital, index) => (
+              <View key={index} style={styles.cardWrapper}>
+                <HospitalCard hospital={hospital} />
+              </View>
+            ))}
+          </ScrollView>
+
         </View>
-
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.horizontalScrollContent}
-        >
-          {hospitals.map((hospital, index) => (
-            <View key={index} style={styles.cardWrapper}>
-              <HospitalCard hospital={hospital} />
-            </View>
-          ))}
-        </ScrollView>
       </View>
-
       {/* Call Button Icon */}
       <TouchableOpacity 
         style={styles.ambulanceButton} 
@@ -193,6 +205,32 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  
+  header: {
+    backgroundColor: '#000000', // Pure Black Background
+    height: 100, // Fixed height for consistency
+    paddingTop: 40, // Padding for Status Bar area
+    paddingHorizontal: 20,
+    borderBottomWidth: 3, // Stylish accent line at the bottom
+    borderBottomColor: '#D32F2F', // Darker Red border for depth
+    justifyContent: 'center',
+    alignItems: 'center', // Centers text horizontally
+    // Shadow for depth (iOS)
+    shadowColor: '#D32F2F',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    // Shadow for depth (Android)
+    elevation: 8,
+  },
+  headerText: {
+    color: '#FF5252', // Vibrant Red Text
+    fontSize: 28,
+    fontWeight: '800', // Extra Bold
+    letterSpacing: 1.5, // Spacing makes it look premium
+    textTransform: 'uppercase', // Optional: makes it look like a logo
+  },
+
   container: {
     flex: 1,
     backgroundColor: THEME.background,
@@ -230,7 +268,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   bannerText: {
-    color: 'white',
+    color: '#000000',
     fontWeight: '600',
   },
   section: {
@@ -322,5 +360,47 @@ const styles = StyleSheet.create({
   footerText: {
     color: THEME.textSecondary,
     fontSize: 13,
+  },
+  // Inside getStyles...
+  bigCard: {
+    backgroundColor: THEME.cardBackground, // Adapts to Dark/Light mode
+    borderRadius: 24,
+    paddingVertical: 20,
+    paddingHorizontal: 12, // Internal padding for the card content
+    
+    // Shadow for iOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    
+    // Shadow for Android
+    elevation: 5,
+    
+    // Border for better visibility in Dark Mode
+    borderWidth: 1,
+    borderColor: THEME.borderColor,
+  },
+  bigCard: {
+    backgroundColor: THEME.cardBackground,
+    borderRadius: 24,
+    paddingVertical: 20,
+    paddingHorizontal: 12,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 10,
+    elevation: 5,
+    borderWidth: 1,
+    borderColor: THEME.borderColor,
+  },
+  // Update sectionHeader to remove extra margin if needed, 
+  // keeping it aligned inside the card
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+    paddingHorizontal: 4, // Align text with inner content
   },
 });

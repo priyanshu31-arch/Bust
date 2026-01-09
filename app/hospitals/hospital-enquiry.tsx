@@ -1,7 +1,7 @@
-import { ScrollView, Text, StyleSheet, View, TouchableOpacity, Linking, Alert } from 'react-native';
-import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
+import { Image } from 'expo-image';
 import { router, useLocalSearchParams } from 'expo-router';
+import { Alert, Linking, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function HospitalEnquiry() {
   const { name, location, rating, image, phone } = useLocalSearchParams<{
@@ -50,7 +50,7 @@ export default function HospitalEnquiry() {
       {/* Hospital Card (same design language) */}
       <View style={styles.card}>
         <Image
-          source={{ uri: image }}
+          source={require('@/assets/images/h3.png')}
           style={styles.cardImage}
         />
         <View style={styles.cardContent}>
